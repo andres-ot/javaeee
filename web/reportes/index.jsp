@@ -12,7 +12,7 @@
         <title>Starter Template for Bootstrap</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="template/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../template/css/bootstrap.min.css" rel="stylesheet">
 
 
     </head>
@@ -44,18 +44,10 @@
             <br><br><br>
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h2 class="panel-title">Menu Principal</h2>
+                    <h2 class="panel-title">Reportes</h2>
                 </div>
                 <div class="panel-body">
-                    <br>
-                    Opciones
-                    <br><br>
-                    <ul class="list-group">
-                        <li class="list-group-item"><a href="usuarios/index.jsp">Usuarios</a></li>
-                        <li class="list-group-item"><a href="ciudades/index.jsp">Ciudades</a></li>
-                        <li class="list-group-item"><a href="reportes/index.jsp">Reportes</a></li>
-                        
-                    </ul>
+                    
 
                 </div>
             </div>
@@ -67,8 +59,7 @@
 
 
 
-        <script src="template/js/bootstrap.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="../template/js/bootstrap.min.js"></script>
 
     </body>
 </html>

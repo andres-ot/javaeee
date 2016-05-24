@@ -1,3 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -47,7 +51,55 @@
                     <h2 class="panel-title">Listar Usuarios</h2>
                 </div>
                 <div class="panel-body">
-                   
+                    <a href="crear.jsp" class="btn btn-default">Nuevo Usuario</a>
+                    <table class="table table-hover">
+                        <thead>
+                        <th>
+                            ID 
+                        </th>
+                        <th>
+                            Nombre: 
+                        </th>
+                        <th>
+                            1er Apellido 
+                        </th>
+                        <th>
+                            2do Apellido 
+                        </th>
+                        <th>Acciones</th>
+                        </thead>
+                        <tbody>
+                            <% Connection con = null;
+                                String driver = "com.mysql.jdbc.Driver";
+                                String url = "jdbc:mysql://localhost:3306/javaee";
+                                String user = "root";
+                                String pass = "";
+
+                                try {
+                                    Class.forName(driver);
+                                    con = DriverManager.getConnection(url, user, pass);
+                                    Statement stmt=con.createStatement();
+                                    stmt.executeQuery("select * from usuarios;");
+                                    ResultSet rs = stmt.getResultSet();
+                                    while(rs.next()){
+                                        out.println("<tr><td>"+rs.getString("usuario_id")+"</td>");
+                                        out.println("<td>"+rs.getString("nombre")+"</td>");
+                                        out.println("<td>"+rs.getString("apepat")+"</td>");
+                                        out.println("<td>"+rs.getString("apemat")+"</td></tr>");
+                                       
+                                    }
+                                } catch (Exception ex) {
+                                    out.println(ex.getMessage());
+                                }
+                            %>
+                            
+
+
+                        </tbody>
+                    </table>
+                    <form name="volver" action="../index.jsp">
+                        <input type="submit" value="Volver" class="btn btn-danger" />
+                    </form>
 
                 </div>
             </div>

@@ -1,3 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -47,7 +51,37 @@
                     <h2 class="panel-title">Listar Ciudades</h2>
                 </div>
                 <div class="panel-body">
-                    
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        </thead>
+                        <tbody>
+                           <% Connection con = null;
+                                String driver = "com.mysql.jdbc.Driver";
+                                String url = "jdbc:mysql://localhost:3306/javaee";
+                                String user = "root";
+                                String pass = "";
+
+                                try {
+                                    Class.forName(driver);
+                                    con = DriverManager.getConnection(url, user, pass);
+                                    Statement stmt=con.createStatement();
+                                    stmt.executeQuery("select * from ciudades;");
+                                    ResultSet rs = stmt.getResultSet();
+                                    while(rs.next()){
+                                        out.println("<tr><td>"+rs.getString("ciudad_id")+"</td>");
+                                        out.println("<td>"+rs.getString("nombre")+"</td></tr>");
+                                        
+                                       
+                                    }
+                                } catch (Exception ex) {
+                                    out.println(ex.getMessage());
+                                }
+                            %> 
+                        </tbody>
+                        
+                    </table>
 
                 </div>
             </div>

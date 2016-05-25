@@ -32,13 +32,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Project name</a>
+                    <a class="navbar-brand" href="../index.jsp">Base de datos</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <<li class="active"><a href="../usuarios/index.jsp">Usuarios</a></li>
+                        <li><a href="index.jsp">Ciudades</a></li>
+                        <li><a href="../reportes/index.jsp">Reportes</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -57,7 +57,7 @@
                         <th>Nombre</th>
                         </thead>
                         <tbody>
-                           <% Connection con = null;
+                            <% Connection con = null;
                                 String driver = "com.mysql.jdbc.Driver";
                                 String url = "jdbc:mysql://localhost:3306/javaee";
                                 String user = "root";
@@ -66,23 +66,24 @@
                                 try {
                                     Class.forName(driver);
                                     con = DriverManager.getConnection(url, user, pass);
-                                    Statement stmt=con.createStatement();
+                                    Statement stmt = con.createStatement();
                                     stmt.executeQuery("select * from ciudades;");
                                     ResultSet rs = stmt.getResultSet();
-                                    while(rs.next()){
-                                        out.println("<tr><td>"+rs.getString("ciudad_id")+"</td>");
-                                        out.println("<td>"+rs.getString("nombre")+"</td></tr>");
-                                        
-                                       
+                                    while (rs.next()) {
+                                        out.println("<tr><td>" + rs.getString("ciudad_id") + "</td>");
+                                        out.println("<td>" + rs.getString("nombre") + "</td></tr>");
+
                                     }
                                 } catch (Exception ex) {
                                     out.println(ex.getMessage());
                                 }
                             %> 
                         </tbody>
-                        
-                    </table>
 
+                    </table>
+                    <form name="volver" action="../index.jsp">
+                        <input type="submit" value="Volver" class="btn btn-danger" />
+                    </form>
                 </div>
             </div>
 

@@ -28,13 +28,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Project name</a>
+                    <a class="navbar-brand" href="index.jsp">Base de datos</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li class="active"><a href="usuarios/index.jsp">Usuarios</a></li>
+                        <li><a href="ciudades/index.jsp">Ciudades</a></li>
+                        <li><a href="reportes/index.jsp">Reportes</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>

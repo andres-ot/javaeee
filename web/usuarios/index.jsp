@@ -32,13 +32,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Project name</a>
+                    <a class="navbar-brand" href="../index.jsp">Base de datos</a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li class="active"><a href="index.jsp">Usuarios</a></li>
+                        <li><a href="../ciudades/index.jsp">Ciudades</a></li>
+                        <li><a href="../reportes/index.jsp">Reportes</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -66,6 +66,7 @@
                         <th>
                             2do Apellido 
                         </th>
+                        <th>Ciudad</th>
                         <th>Acciones</th>
                         </thead>
                         <tbody>
@@ -79,13 +80,17 @@
                                     Class.forName(driver);
                                     con = DriverManager.getConnection(url, user, pass);
                                     Statement stmt=con.createStatement();
-                                    stmt.executeQuery("select * from usuarios;");
+                                    stmt.executeQuery("select * from usuarios, ciudades where usuarios.ciudad_id = ciudades.ciudad_id and usuarios.estado='Activo';");
                                     ResultSet rs = stmt.getResultSet();
                                     while(rs.next()){
-                                        out.println("<tr><td>"+rs.getString("usuario_id")+"</td>");
+                                        out.println("<tr>");
+                                        out.println("<td>"+rs.getString("usuario_id")+"</td>");
                                         out.println("<td>"+rs.getString("nombre")+"</td>");
                                         out.println("<td>"+rs.getString("apepat")+"</td>");
-                                        out.println("<td>"+rs.getString("apemat")+"</td></tr>");
+                                        out.println("<td>"+rs.getString("apemat")+"</td>");
+                                        out.println("<td>"+rs.getString("ciudades.nombre")+"</td>");
+                                        out.println("<td><a href='editar.jsp' class='btn btn-success'> Editar </a><a href='xx' class='btn btn-danger'> Eliminar </a></td>");
+                                        out.println("</tr>");
                                        
                                     }
                                 } catch (Exception ex) {

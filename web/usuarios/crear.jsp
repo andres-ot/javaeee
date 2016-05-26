@@ -48,18 +48,33 @@
                 </div>
                 <div class="panel-body">
                     <br>
-                    Opciones
+                    Crear Usuario
                     <br><br>
-                    <ul class="list-group">
-                        <li class="list-group-item"><a href="usuarios/index.jsp">Usuarios</a></li>
-                        <li class="list-group-item"><a href="ciudades/index.jsp">Ciudades</a></li>
-                        <li class="list-group-item"><a href="reportes/index.jsp">Reportes</a></li>
+                    <table class="table table-bordered">
+                        <thead>
+                        <th>Nombre:</th>
+                        <th>Apellido paterno:</th>
+                        <th>Apellido materno:</th>
+                        <th>Ciudad:</th>
                         
-                    </ul>
-
+                        </thead>
+                        <form action="ucreado.jsp" method="post">
+                        <tbody>
+                        <td><input type="text" name="nombre"></td>
+                        <td><input type="text" name="apepat"></td>
+                        <td><input type="text" name="apemat"></td>
+                        <td><select>
+                        <option name="list" value="1">Punta Arenas</datalist>
+                        <option name="list" value="2">Santiago</datalist>
+                            </select>
+                        </td>    
+                        </tbody>    
+                    </table>
+                    <input type="submit" class="btn btn-success" name="Enviar">
+                </form>
                 </div>
             </div>
-
+            
 
 
 
